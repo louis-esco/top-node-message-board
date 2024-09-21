@@ -8,12 +8,12 @@
   <body>
     <h1>Messages list:</h1>
     <ul>
-      <% messages.forEach((msg, index) => { %>
+      <% messages.forEach((msg) => { %>
       <li>
         <div>Text: <%= msg.text %></div>
         <div>User: <%= msg.user %></div>
         <div>Added: <%= msg.added %></div>
-        <a href="/message/<%= index %>">Go to message</a>
+        <a href="/message/<%= msg.id %>">Go to message</a>
       </li>
       <% }); %>
     </ul>

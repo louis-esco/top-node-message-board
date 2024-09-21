@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get("/", indexController.displayMsgs);
 router.get("/new", indexController.displayForm);
-router.get("/message/:index", indexController.displayMsgDetails);
+router.get("/message/:id", indexController.displayMsgDetails);
 
 router.post("/new", indexController.getFormData);
 

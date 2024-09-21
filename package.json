@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "populate": "node ./db/populatedb.js",
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
   }
 }

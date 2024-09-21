@@ -1,24 +1,15 @@
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
+const db = require("../db/queries");
 
-const displayMsgs = (req, res) => {
+const displayMsgs = async (req, res) => {
+  const messages = await db.getAllMessages();
   res.render("index", { messages: messages });
 };
 
-const displayMsgDetails = (req, res) => {
+const displayMsgDetails = async (req, res) => {
+  const message = await db.getMsgById(req.params.id);
   res.render("message", {
-    message: messages[req.params.index],
-    index: Number(req.params.index) + 1,
+    message: message[0],
+    index: Number(req.params.id),
   });
 };
 
@@ -26,12 +17,13 @@ const displayForm = (req, res) => {
   res.render("form");
 };
 
-const getFormData = (req, res) => {
-  messages.push({
+const getFormData = async (req, res) => {
+  const msg = {
     text: req.body.text,
     user: req.body.author,
-    added: new Date(),
-  });
+    added: new Date().toISOString(),
+  };
+  await db.addMsg(msg);
   res.redirect("/");
 };
 
