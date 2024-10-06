@@ -1,4 +1,4 @@
-# top-node-message-board
+# THe Odin Project - Message Board
 
 ## Live preview
 Deployed at: https://top-node-message-board.adaptable.app/
